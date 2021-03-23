@@ -1,0 +1,34 @@
+{
+  "name": "LaslesVPN",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "scripts": {
+    "build": "rimraf dist && webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levineye13/LaslesVPN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/levineye13/LaslesVPN/issues"
+  },
+  "homepage": "https://github.com/levineye13/LaslesVPN#readme",
+  "devDependencies": {
+    "css-loader": "^5.1.3",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.3.9",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "webpack": "^5.27.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
