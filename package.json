@@ -4,7 +4,7 @@
   "description": "",
   "private": "true",
   "scripts": {
-    "build": "rimraf dist && webpack --mode production",
+    "build": "webpack --mode production",
     "dev": "webpack serve"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/levineye13/LaslesVPN#readme",
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.1.3",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.3.9",
@@ -28,7 +29,5 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {
-    "rimraf": "^3.0.2"
-  }
+  "dependencies": {}
 }
