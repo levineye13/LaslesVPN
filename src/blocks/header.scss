@@ -1,0 +1,139 @@
+$dark-color: #0b132a;
+$gray-color: #4f5665;
+$red-color: #f53855;
+$animation-duration: 0.3s;
+$opacity: 0.7;
+
+@mixin font-config($size, $weight, $lh, $color) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+  line-height: $lh;
+  color: $color;
+}
+
+.header {
+  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+  transition: opacity $animation-duration;
+}
+
+.logo:hover {
+  opacity: $opacity;
+}
+
+.logo__overlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo__img {
+  max-width: 35px;
+  height: auto;
+}
+
+.logo__name {
+  margin-left: 10px;
+  @include font-config(20px, 500, 1.2, $dark-color);
+}
+
+.logo__bold {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.header__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.header__item {
+  transition: opacity $animation-duration;
+}
+
+.header__item:hover {
+  opacity: $opacity;
+}
+
+.header__item:not(:first-child) {
+  margin-left: 40px;
+}
+
+.header__link {
+  box-sizing: border-box;
+  display: block;
+  text-decoration: none;
+  @include font-config(16px, 400, 1.19, $gray-color);
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  transition: border-color $animation-duration;
+  border-bottom: 2px solid transparent;
+}
+
+.header__link:hover {
+  border-bottom-color: rgba($color: $gray-color, $alpha: 0.7);
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+}
+
+.header__signin {
+  @include font-config(16px, 500, 1.19, $dark-color);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.header__signin:hover {
+  opacity: $opacity;
+}
+
+.header__signup {
+  box-sizing: border-box;
+  @include font-config(16px, 500, 1.19, $red-color);
+  padding: 13px 45px;
+  border: 1px solid $red-color;
+  border-radius: 50px;
+  margin-left: 30px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: color $animation-duration;
+}
+
+.header__signup:hover {
+  color: #fff;
+}
+
+.header__signup::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba($color: $red-color, $alpha: 1);
+  transition: width $animation-duration;
+  z-index: -1;
+}
+
+.header__signup:hover::before {
+  width: 100%;
+}
