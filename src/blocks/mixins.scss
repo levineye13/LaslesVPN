@@ -1,0 +1,14 @@
+@mixin font-config($size, $weight, $lh, $color) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+  line-height: $lh;
+  color: $color;
+}
+
+@mixin external-geometry($max-width, $width, $margin) {
+  max-width: $max-width;
+  width: $width;
+  margin: $margin;
+}
