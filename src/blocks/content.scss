@@ -1,7 +1,30 @@
 .content {
-  &__about {
+  &__about,
+  &__statistic,
+  &__features,
+  &__pricing,
+  &__network {
     max-width: 1140px;
     width: 100%;
+  }
+
+  &__about {
     margin: 88px auto 0;
+  }
+
+  &__statistic {
+    margin: 100px auto 0;
+  }
+
+  &__features {
+    margin: 95px auto 0;
+  }
+
+  &__pricing {
+    margin: 80px auto 0;
+  }
+
+  &__network {
+    margin: 150px auto 0;
   }
 }
