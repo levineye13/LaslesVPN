@@ -1,0 +1,102 @@
+.footer {
+  background-color: #f8f8f8;
+
+  &__wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__column {
+    flex-basis: 340px;
+  }
+
+  &__subtitle {
+    margin: 20px 0 0;
+    @include font-config(16px, 400, 1.87, $gray-color);
+  }
+
+  &__bold {
+    font-weight: 500;
+  }
+
+  &__info {
+    margin-top: 30px;
+  }
+
+  &__social-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+  }
+
+  &__social-item:not(:first-child) {
+    margin-left: 20px;
+  }
+
+  &__social-link {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    background-color: $white-color;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow $animation-duration;
+
+    &:hover {
+      box-shadow: 0 0 2px 2px $red-color;
+    }
+  }
+
+  &__img {
+    max-width: 18px;
+    max-height: 18px;
+    fill: $red-color;
+  }
+
+  &__author {
+    margin: 30px 0 0;
+    @include font-config(16px, 400, 1.87, #afb5c0);
+  }
+
+  &__menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+  }
+
+  &__item:not(:first-child) {
+    margin-left: 125px;
+  }
+
+  &__title {
+    margin: 0;
+    @include font-config(18px, 500, 1.67, $dark-color);
+  }
+
+  &__submenu {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__subitem:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    @include font-config(16px, 400, 1.87, $gray-color);
+    transition: opacity $animation-duration;
+
+    &:hover {
+      opacity: $opacity;
+    }
+  }
+}

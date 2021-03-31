@@ -3,7 +3,8 @@
   &__statistic,
   &__features,
   &__pricing,
-  &__network {
+  &__network,
+  &__resources {
     max-width: 1140px;
     width: 100%;
   }
@@ -26,5 +27,9 @@
 
   &__network {
     margin: 150px auto 0;
+  }
+
+  &__resources {
+    margin: 35px auto 0;
   }
 }

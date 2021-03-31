@@ -10,9 +10,13 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: $white-color;
-  padding: 45px 0 100px;
 
   &__header {
     @include external-geometry(1140px, 100%, 0 auto);
+  }
+
+  &__footer {
+    width: 100%;
+    padding: 65px 0 100px;
   }
 }
