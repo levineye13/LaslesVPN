@@ -1,7 +1,7 @@
 {
   "name": "LaslesVPN",
   "version": "1.0.0",
-  "description": "",
+  "description": "Website about LaslesVpn",
   "private": "true",
   "scripts": {
     "build": "webpack --mode production",
@@ -11,8 +11,16 @@
     "type": "git",
     "url": "git+https://github.com/levineye13/LaslesVPN.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Vpn",
+    "Lasles",
+    "LaslesVPN"
+  ],
+  "author": {
+    "name": "Oleg Zharov",
+    "email": "levineye@yandex.ru",
+    "url": "https://levineye13.github.io/my-projects/"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/levineye13/LaslesVPN/issues"
