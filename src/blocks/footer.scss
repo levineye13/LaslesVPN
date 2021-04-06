@@ -26,9 +26,7 @@
   }
 
   &__social-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+    @extend .list-reset-defult;
     display: flex;
   }
 
@@ -64,9 +62,7 @@
   }
 
   &__menu {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+    @extend .list-reset-defult;
     display: flex;
   }
 
@@ -80,9 +76,8 @@
   }
 
   &__submenu {
+    @extend .list-reset-defult;
     margin: 20px 0 0;
-    padding: 0;
-    list-style-type: none;
   }
 
   &__subitem:not(:first-child) {

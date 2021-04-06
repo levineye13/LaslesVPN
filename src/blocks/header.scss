@@ -4,9 +4,7 @@
   align-items: center;
 
   &__list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    @extend .list-reset-defult;
     display: flex;
   }
 
@@ -47,6 +45,7 @@
     @include font-config(16px, 500, 1.19, $dark-color);
     text-decoration: none;
     transition: opacity 0.3s;
+    padding: 13px 30px;
   }
 
   &__signin:hover {
@@ -59,7 +58,7 @@
     padding: 13px 45px;
     border: 1px solid $red-color;
     border-radius: 50px;
-    margin-left: 30px;
+    margin-left: 15px;
     text-decoration: none;
     position: relative;
     overflow: hidden;
