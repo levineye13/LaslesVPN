@@ -1,7 +1,17 @@
+@import './variables.scss';
+@import './general.scss';
+@import './mixins.scss';
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &__menu {
+    @media screen and (max-width: 960px) {
+      display: none;
+    }
+  }
 
   &__list {
     @extend .list-reset-defult;
@@ -10,14 +20,11 @@
 
   &__item {
     transition: opacity $animation-duration;
-  }
+    padding: 0 15px;
 
-  &__item:hover {
-    opacity: $opacity;
-  }
-
-  &__item:not(:first-child) {
-    margin-left: 40px;
+    &:hover {
+      opacity: $opacity;
+    }
   }
 
   &__link {
@@ -30,40 +37,52 @@
     padding: 5px;
     transition: border-color $animation-duration;
     border-bottom: 2px solid transparent;
-  }
 
-  &__link:hover {
-    border-bottom-color: rgba($color: $gray-color, $alpha: 0.7);
+    &:hover {
+      border-bottom-color: rgba($color: $gray-color, $alpha: 0.7);
+    }
   }
 
   &__auth {
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 960px) {
+      margin: 0 40px 0 auto;
+    }
+
+    @media screen and (max-width: 720px) {
+      display: none;
+    }
+  }
+
+  &__signin,
+  &__signup {
+    box-sizing: border-box;
+    @include font-config(16px, 500, 1.19, $dark-color);
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: color $animation-duration;
   }
 
   &__signin {
-    @include font-config(16px, 500, 1.19, $dark-color);
-    text-decoration: none;
-    transition: opacity 0.3s;
     padding: 13px 30px;
-  }
 
-  &__signin:hover {
-    opacity: $opacity;
+    &:hover {
+      color: $red-color;
+    }
   }
 
   &__signup {
-    box-sizing: border-box;
-    @include font-config(16px, 500, 1.19, $red-color);
+    color: $red-color;
     padding: 13px 45px;
     border: 1px solid $red-color;
     border-radius: 50px;
     margin-left: 15px;
-    text-decoration: none;
     position: relative;
     overflow: hidden;
     z-index: 0;
-    transition: color $animation-duration;
 
     &::before {
       content: '';
@@ -77,13 +96,78 @@
       transition: width $animation-duration;
       z-index: -1;
     }
+
+    &:hover {
+      color: #fff;
+
+      &::before {
+        width: 100%;
+      }
+    }
   }
 
-  &__signup:hover {
-    color: #fff;
+  &__button-menu {
+    box-sizing: border-box;
+    display: none;
+    outline: 0;
+    border: 2px solid transparent;
+    padding: 2px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      animation: button-border 0.5s linear 0s 1;
+    }
+
+    @media screen and (max-width: 960px) {
+      display: block;
+    }
+  }
+
+  &__button-element,
+  &__button-element::before,
+  &__button-element::after {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: $gray-color;
+    border-radius: 4px;
+  }
+
+  &__button-element {
+    position: relative;
+    transition: background-color $animation-duration;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: transform $animation-duration;
+    }
 
     &::before {
-      width: 100%;
+      transform: translateY(-13px);
     }
+
+    &::after {
+      transform: translateY(13px);
+    }
+  }
+
+  &__button-menu_active &__button-element {
+    background-color: transparent;
+  }
+
+  &__button-menu_active &__button-element::before {
+    transform: rotate(45deg);
+  }
+
+  &__button-menu_active &__button-element::after {
+    transform: rotate(-45deg);
   }
 }
