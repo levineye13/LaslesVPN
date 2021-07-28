@@ -439,5 +439,67 @@
         </ul>
       </div>
     </footer>
+    <section class="popup popup_type_login">
+      <form action="#" class="popup__form" name="loginForm" novalidate>
+        <h2 class="popup__title">Login</h2>
+        <fieldset class="popup__fieldset">
+          <label class="popup__field">
+            <input
+              type="email"
+              class="popup__input"
+              name="name"
+              placeholder="Email"
+            />
+            <span class="popup__error"></span>
+          </label>
+          <label class="popup__field">
+            <input
+              type="password"
+              class="popup__input"
+              name="password"
+              placeholder="Password"
+            />
+            <span class="popup__error"></span>
+          </label>
+          <button class="popup__submit" type="submit">Sign in</button>
+        </fieldset>
+      </form>
+    </section>
+    <section class="popup popup_type_register">
+      <form action="#" class="popup__form" name="registerForm" novalidate>
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Registration</h2>
+        <fieldset class="popup__fieldset">
+          <label class="popup__field">
+            <input
+              type="email"
+              class="popup__input"
+              name="name"
+              placeholder="Email"
+            />
+            <span class="popup__error"></span>
+          </label>
+          <label class="popup__field">
+            <input
+              type="password"
+              class="popup__input"
+              name="password"
+              placeholder="Password"
+            />
+            <span class="popup__error"></span>
+          </label>
+          <label class="popup__field">
+            <input
+              type="password"
+              class="popup__input"
+              name="confirm"
+              placeholder="Confirm password"
+            />
+            <span class="popup__error"></span>
+          </label>
+          <button class="popup__submit" type="submit">Sign up</button>
+        </fieldset>
+      </form>
+    </section>
   </body>
 </html>
