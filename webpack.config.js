@@ -3,26 +3,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const buildDirectory = 'dist';
+
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/pages/index.scss',
-    fonts: './src/vendor/fonts/fonts.scss',
+    main: './src/index.js',
   },
   output: {
-    path: resolve(__dirname, 'dist'),
+    path: resolve(__dirname, buildDirectory),
   },
   devServer: {
-    contentBase: resolve(__dirname, 'dist'),
+    contentBase: resolve(__dirname, buildDirectory),
     compress: true,
     host: 'localhost',
     port: 8080,
     open: true,
-    writeToDisk: true,
     watchContentBase: true,
   },
   module: {
     rules: [
+      {
+        test: /\.js/i,
+        exclude: '/node_modules',
+      },
       {
         test: /\.(c|sc|sa)ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
@@ -35,7 +39,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(eot|ttf|woff(2)?)$/i,
+        test: /\.(eot|ttf|woff2?)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'fonts/[hash][ext]',
