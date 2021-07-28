@@ -1,16 +1,32 @@
 .about {
-  &__body {
+  &__content {
     margin: 0;
     display: flex;
+
+    @media screen and (max-width: 960px) {
+      flex-direction: column;
+    }
   }
 
   &__description {
     flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media screen and (max-width: 960px) {
+      flex-basis: auto;
+    }
   }
 
   &__title {
     margin: 0;
     @include font-config(50px, 500, 1.4, $dark-color);
+
+    @media screen and (max-width: 720px) {
+      font-size: 40px;
+      line-height: 1.2;
+    }
   }
 
   &__bold {
@@ -20,6 +36,10 @@
   &__subtitle {
     margin: 20px 0 0;
     @include font-config(16px, 400, 1.87, $gray-color);
+
+    @media screen and (max-width: 960px) {
+      margin-top: 10px;
+    }
   }
 
   &__medium {
@@ -27,6 +47,7 @@
   }
 
   &__link {
+    box-sizing: border-box;
     display: inline-block;
     margin: 50px 0 0;
     @include font-config(16px, 700, 1.56, $white-color);
@@ -34,7 +55,9 @@
     background-color: $red-color;
     text-decoration: none;
     border-radius: 10px;
+    white-space: nowrap;
     position: relative;
+    text-align: center;
 
     &::before {
       content: '';
@@ -51,10 +74,33 @@
     &:hover::before {
       animation: button-blick $animation-duration ease 0s 1;
     }
+
+    @media screen and (max-width: 960px) {
+      margin-top: 30px;
+      align-self: center;
+    }
+
+    @media screen and (max-width: 720px) {
+      font-size: 14px;
+      line-height: 1.2;
+      padding: 14px 60px;
+      margin-top: 15px;
+      align-self: stretch;
+    }
   }
 
   &__illustration {
-    max-width: 570px;
     flex-basis: 50%;
+    max-width: 50%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+
+    @media screen and (max-width: 960px) {
+      flex-basis: auto;
+      max-width: none;
+      margin-top: 20px;
+      align-self: stretch;
+    }
   }
 }
