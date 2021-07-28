@@ -1,22 +1,48 @@
+@import './variables.scss';
+@import './general.scss';
+@import './mixins.scss';
+
 .statistic {
   background-color: $white-color;
+  box-shadow: 0 1px 4px rgba($color: #0d1025, $alpha: 0.06);
+  border-radius: 10px;
 
   &__list {
+    box-sizing: border-box;
     @extend .list-reset-defult;
     padding: 37px 0;
     display: flex;
+
+    @media screen and (max-width: 720px) {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0;
+    }
   }
 
   &__item {
     box-sizing: border-box;
-    padding: 35px 0;
-    flex-basis: 33.333%;
+    width: 33.333%;
+    padding: 30px;
 
     &:nth-child(2) {
       border: {
         left: 2px solid #eeeff2;
         right: 2px solid #eeeff2;
       }
+
+      @media screen and (max-width: 720px) {
+        border: {
+          left: none;
+          right: none;
+          top: 2px solid #eeeff2;
+          bottom: 2px solid #eeeff2;
+        }
+      }
+    }
+
+    @media screen and (max-width: 720px) {
+      width: auto;
     }
   }
 
@@ -25,17 +51,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 720px) {
+      justify-content: flex-end;
+    }
   }
 
   &__circle {
-    margin-right: 36px;
-    width: 55px;
-    height: 55px;
+    min-width: 55px;
+    min-height: 55px;
     background-color: #ffecec;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &__description {
+    margin-left: 36px;
+
+    @media screen and (max-width: 720px) {
+      flex-basis: 50%;
+    }
   }
 
   &__img {
@@ -45,12 +82,28 @@
   }
 
   &__title {
-    margin: 0;
+    margin: 0 0 5px 0;
     @include font-config(25px, 700, 1.2, $dark-color);
+
+    @media screen and (max-width: 720px) {
+      font-size: 21px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 18px;
+    }
   }
 
   &__subtitle {
     margin: 0;
     @include font-config(20px, 400, 1.5, $gray-color);
+
+    @media screen and (max-width: 720px) {
+      font-size: 21px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 18px;
+    }
   }
 }
