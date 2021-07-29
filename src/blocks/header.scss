@@ -61,6 +61,7 @@
     box-sizing: border-box;
     @include font-config(16px, 500, 1.19, $dark-color);
     border: 0;
+    outline: 0;
     background-color: transparent;
     cursor: pointer;
     transition: color $animation-duration;
