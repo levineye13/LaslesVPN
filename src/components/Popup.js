@@ -2,30 +2,30 @@ import { keyCodeESC } from '../utils/constants';
 
 class Popup {
   constructor(popupSelector) {
-    this._popup = document.querySelector(popupSelector);
-    this._buttonClose = this._popup.querySelector('.popup__close');
+    this.popupHtmlElement = document.querySelector(popupSelector);
+    this._buttonClose = this.popupHtmlElement.querySelector('.popup__close');
     this._openedPopup = 'popup_opened';
   }
 
   open = () => {
-    this._popup.classList.add(this._openedPopup);
+    this.popupHtmlElement.classList.add(this._openedPopup);
     this._setEventListener();
   };
 
   close = () => {
-    this._popup.classList.remove(this._openedPopup);
+    this.popupHtmlElement.classList.remove(this._openedPopup);
     this._removeEventListener();
   };
 
   _setEventListener = () => {
     this._buttonClose.addEventListener('click', this._handleButtonClose);
-    this._popup.addEventListener('click', this._handleScreenClose);
+    this.popupHtmlElement.addEventListener('click', this._handleScreenClose);
     document.addEventListener('keydown', this._handleEscClose);
   };
 
   _removeEventListener = () => {
     this._buttonClose.removeEventListener('click', this._handleButtonClose);
-    this._popup.removeEventListener('click', this._handleScreenClose);
+    this.popupHtmlElement.removeEventListener('click', this._handleScreenClose);
     document.removeEventListener('keydown', this._handleEscClose);
   };
 
