@@ -13,7 +13,6 @@ class FormValidator {
 
   _checkInputValidity = (inputList) => {
     return inputList.some((input) => {
-      console.log(input.validity);
       return !input.validity.valid;
     });
   };
