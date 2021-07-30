@@ -30,7 +30,17 @@ module.exports = {
       },
       {
         test: /\.(c|sc|sa)ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+            },
+          },
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.(png|jpg|svg|gif|ico)$/i,
