@@ -2,21 +2,23 @@
 @import './mixins.scss';
 
 .popup {
-  height: 100vh;
+  height: 0;
   width: calc(100vw - 20px * 2);
   padding: 0 20px;
   position: fixed;
   left: 0;
   top: 0;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: $overlay;
   z-index: 500;
+  overflow: hidden;
+  transition: height $animation-duration;
 
   &_opened {
-    display: flex;
+    height: 100vh;
   }
 
   &__form {
