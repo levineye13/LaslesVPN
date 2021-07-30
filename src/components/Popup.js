@@ -1,4 +1,4 @@
-import { keyCodeESC } from '../utils/constants';
+import { keyCodeESC, htmlNodeNames } from '../utils/constants';
 
 class Popup {
   constructor(popupSelector) {
@@ -15,6 +15,17 @@ class Popup {
   close = () => {
     this.popupHtmlElement.classList.remove(this._openedPopup);
     this._removeEventListener();
+    this._resetForm();
+  };
+
+  _resetForm = () => {
+    const formElement = this.popupHtmlElement.querySelector('form');
+
+    Array.from(formElement.elements).forEach((element) => {
+      if (element.nodeName === htmlNodeNames.input) {
+        element.value = '';
+      }
+    });
   };
 
   _setEventListener = () => {
