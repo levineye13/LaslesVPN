@@ -121,5 +121,10 @@
     margin-top: 50px;
     border-radius: 7px;
     text-transform: uppercase;
+
+    &:disabled {
+      pointer-events: none;
+      user-select: none;
+    }
   }
 }
