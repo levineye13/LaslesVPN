@@ -1,3 +1,5 @@
+import { htmlNodeNames } from '../utils/constants';
+
 class FormValidator {
   constructor(elementWithForm) {
     this._htmlElementWithForm = elementWithForm;
@@ -19,7 +21,6 @@ class FormValidator {
 
   _checkFormValidity = (inputElements, submitElement) => {
     const isValidInputs = !this._checkInputValidity(inputElements);
-    console.log(isValidInputs);
     this._setSubmitState(isValidInputs, submitElement);
   };
 
@@ -35,11 +36,13 @@ class FormValidator {
     const formElements = Array.from(this._form.elements);
 
     const inputElements = formElements.filter(
-      (element) => element.nodeName === 'INPUT'
+      (element) => element.nodeName === htmlNodeNames.input
     );
 
     const submitElement = formElements.find((element) => {
-      return element.nodeName === 'BUTTON' && element.type === 'submit';
+      return (
+        element.nodeName === htmlNodeNames.button && element.type === 'submit'
+      );
     });
 
     this._setInputListeners(inputElements, submitElement);
