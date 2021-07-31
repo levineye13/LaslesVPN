@@ -6,6 +6,16 @@ class FormValidator {
     this._form = this._htmlElementWithForm.querySelector('form');
   }
 
+  _showInputError = (inputElement) => {
+    const errorElement = inputElement.nextElementSibling;
+    errorElement.textContent = inputElement.validationMessage;
+  };
+
+  _hideInputError = (inputElement) => {
+    const errorElement = inputElement.nextElementSibling;
+    errorElement.textContent = '';
+  };
+
   _setSubmitState = (isFormValid, submitElement) => {
     if (isFormValid) {
       return submitElement.removeAttribute('disabled');
@@ -13,10 +23,18 @@ class FormValidator {
     return submitElement.setAttribute('disabled', true);
   };
 
-  _checkInputValidity = (inputList) => {
+  _hasInvalidInput = (inputList) => {
     return inputList.some((input) => {
       return !input.validity.valid;
     });
+  };
+
+  _checkInputValidity = (inputElement) => {
+    if (inputElement.validity.valid) {
+      this._hideInputError(inputElement);
+    } else {
+      this._showInputError(inputElement);
+    }
   };
 
   _resetForm = (inputList) => {
@@ -24,15 +42,16 @@ class FormValidator {
   };
 
   _checkFormValidity = (inputElements, submitElement) => {
-    const isValidInputs = !this._checkInputValidity(inputElements);
+    const isValidInputs = !this._hasInvalidInput(inputElements);
     this._setSubmitState(isValidInputs, submitElement);
   };
 
   _setInputListeners = (inputList, submitElement) => {
     inputList.forEach((input) => {
-      input.addEventListener('input', () =>
-        this._checkFormValidity(inputList, submitElement)
-      );
+      input.addEventListener('input', () => {
+        this._checkInputValidity(input);
+        this._checkFormValidity(inputList, submitElement);
+      });
     });
   };
 

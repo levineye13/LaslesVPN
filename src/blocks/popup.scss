@@ -94,6 +94,9 @@
   }
 
   &__field {
+    display: flex;
+    flex-direction: column;
+
     &:not(:first-of-type) {
       margin-top: 20px;
     }
@@ -111,6 +114,8 @@
   }
 
   &__error {
+    margin-top: 5px;
+    @include font-config(14px, 400, 1.2, $red-color);
   }
 
   &__submit {
