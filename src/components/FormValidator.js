@@ -16,6 +16,11 @@ class FormValidator {
     errorElement.textContent = '';
   };
 
+  _showRequestMessage = (message) => {
+    const messageElement = this._form.querySelector('p');
+    messageElement.textContent = message;
+  };
+
   _setSubmitState = (isFormValid, submitElement) => {
     if (isFormValid) {
       return submitElement.removeAttribute('disabled');
@@ -55,11 +60,26 @@ class FormValidator {
     });
   };
 
+  _checkPasswordMatch = (passwordInput, confirmInput) => {
+    if (passwordInput.value !== confirmInput.value) {
+      this._showRequestMessage('Password mismatch.');
+      return false;
+    }
+
+    this._showRequestMessage('');
+    return true;
+  };
+
   validate = () => {
     const formElements = Array.from(this._form.elements);
 
     const inputElements = formElements.filter(
       (element) => element.nodeName === htmlNodeNames.input
+    );
+
+    const passwordInputs = inputElements.reduce(
+      (acc, input) => (input.type === 'password' ? [...acc, input] : acc),
+      []
     );
 
     const submitElement = formElements.find((element) => {
@@ -75,8 +95,16 @@ class FormValidator {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
 
-      this._setSubmitState(false, submitElement);
-      this._resetForm(inputElements);
+      let matched;
+
+      if (passwordInputs.length === 2) {
+        matched = this._checkPasswordMatch(...passwordInputs);
+      }
+
+      if (matched) {
+        this._setSubmitState(false, submitElement);
+        this._resetForm(inputElements);
+      }
     });
   };
 }
