@@ -15,17 +15,6 @@ class Popup {
   close = () => {
     this.popupHtmlElement.classList.remove(this._openedPopup);
     this._removeEventListener();
-    this._resetForm();
-  };
-
-  _resetForm = () => {
-    const formElement = this.popupHtmlElement.querySelector('form');
-
-    Array.from(formElement.elements).forEach((element) => {
-      if (element.nodeName === htmlNodeNames.input) {
-        element.value = '';
-      }
-    });
   };
 
   _setEventListener = () => {

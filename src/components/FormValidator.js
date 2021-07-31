@@ -19,6 +19,10 @@ class FormValidator {
     });
   };
 
+  _resetForm = (inputList) => {
+    inputList.forEach((input) => (input.value = ''));
+  };
+
   _checkFormValidity = (inputElements, submitElement) => {
     const isValidInputs = !this._checkInputValidity(inputElements);
     this._setSubmitState(isValidInputs, submitElement);
@@ -48,6 +52,13 @@ class FormValidator {
     this._setInputListeners(inputElements, submitElement);
 
     this._checkFormValidity(inputElements, submitElement);
+
+    this._form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+
+      this._setSubmitState(false, submitElement);
+      this._resetForm(inputElements);
+    });
   };
 }
 
