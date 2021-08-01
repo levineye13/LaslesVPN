@@ -1,22 +1,54 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import './general.scss';
+
 .features {
   display: flex;
   justify-content: space-between;
 
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__illustration {
-    max-width: 508px;
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+
+    @media screen and (max-width: 720px) {
+      width: auto;
+      align-self: stretch;
+    }
   }
 
   &__text {
-    max-width: 428px;
+    margin-left: 15px;
+    width: 50%;
+
+    @media screen and (max-width: 720px) {
+      width: 80%;
+      margin-left: 0;
+    }
   }
 
   &__title {
     @include font-config(35px, 500, 1.43, $dark-color);
+
+    @media screen and (max-width: 720px) {
+      font-size: 25px;
+    }
   }
 
   &__subtitle {
     margin: 20px 0 0;
-    @include font-config(16px, 400, 1.87, $gray-color);
+    @include font-config(18px, 400, 1.87, $gray-color);
+
+    @media screen and (max-width: 720px) {
+      font-size: 16px;
+      line-height: 1.4;
+    }
   }
 
   &__list {
@@ -25,7 +57,6 @@
   }
 
   &__item {
-    @include font-config(14px, 400, 2.14, $gray-color);
     display: flex;
     align-items: center;
 
@@ -49,6 +80,16 @@
       content: '\2714';
       color: $white-color;
       font-size: 13px;
+    }
+  }
+
+  &__item-text {
+    margin: 0;
+    @include font-config(16px, 400, 2.14, $gray-color);
+
+    @media screen and (max-width: 720px) {
+      font-size: 14px;
+      line-height: 1.8;
     }
   }
 }
