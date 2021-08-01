@@ -36,13 +36,9 @@
     min-height: 760px;
     padding: 60px 0 50px;
     flex: 0 0 330px;
-    display: grid;
-    grid-template-columns: auto;
-    //justify-content: center;
-    justify-items: center;
-    //align-content: space-between;
-    align-items: end;
-    grid-template-rows: auto auto 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     box-shadow: 0 0 3px 2px #ddd;
     border-radius: 10px;
     transition: box-shadow $animation-duration;
@@ -57,16 +53,20 @@
         right: 30px;
       }
       min-height: auto;
-      grid-template-columns: 1fr 1.5fr 1fr;
-      grid-template-areas:
-        'image list price'
-        'image list button';
-
-      justify-items: center;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
 
       &:not(:first-of-type) {
         margin-top: 30px;
       }
+    }
+
+    @media screen and (max-width: 720px) {
+      //min-height: 760px;
+      flex-direction: column;
+      align-items: center;
+      //justify-content: initial;
     }
   }
 
@@ -75,10 +75,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    @media screen and (max-width: 1080px) {
-      grid-area: image;
-    }
   }
 
   &__img {
@@ -97,8 +93,11 @@
     text-align: initial;
 
     @media screen and (max-width: 1080px) {
-      margin: 0;
-      grid-area: list;
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: 720px) {
+      margin-top: 30px;
     }
   }
 
@@ -129,14 +128,36 @@
     }
   }
 
+  &__container {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (max-width: 1080px) {
+      width: auto;
+      margin-top: 0;
+      align-self: center;
+    }
+
+    @media screen and (max-width: 720px) {
+      width: 100%;
+      margin-top: 50px;
+    }
+  }
+
   &__price {
     margin: auto 0 0;
+
     @include font-config(25px, 500, 1.2, $dark-color);
 
     @media screen and (max-width: 1080px) {
       margin: 0;
-      grid-area: price;
-      align-self: end;
+    }
+
+    @media screen and (max-width: 720px) {
+      font-size: 20px;
     }
   }
 
@@ -152,8 +173,7 @@
     text-decoration: none;
     @include font-config(16px, 700, 1.19, $red-color);
     padding: 13px 0;
-    max-width: 182px;
-    width: 100%;
+    width: 182px;
     background-color: transparent;
     border: 2px solid $red-color;
     border-radius: 50px;
@@ -180,11 +200,6 @@
 
     &:hover::before {
       width: 100%;
-    }
-
-    @media screen and (max-width: 1080px) {
-      grid-area: button;
-      align-self: start;
     }
   }
 }
