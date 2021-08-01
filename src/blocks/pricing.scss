@@ -4,32 +4,69 @@
   &__title {
     margin: 0;
     @include font-config(35px, 500, 1.43, $dark-color);
+
+    @media screen and (max-width: 720px) {
+      font-size: 25px;
+      line-height: 1.2;
+    }
   }
 
   &__subtitle {
     margin: 20px 0 0;
-    @include font-config(16px, 400, 1.87, $gray-color);
+    @include font-config(18px, 400, 1.87, $gray-color);
+
+    @media screen and (max-width: 720px) {
+      font-size: 16px;
+      line-height: 1.4;
+    }
   }
 
   &__cards {
     margin-top: 60px;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 1080px) {
+      flex-direction: column;
+    }
   }
 
   &__card {
-    min-height: 760px;
     box-sizing: border-box;
-    padding: 80px 70px 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    min-height: 760px;
+    padding: 60px 0 50px;
+    flex: 0 0 330px;
+    display: grid;
+    grid-template-columns: auto;
+    //justify-content: center;
+    justify-items: center;
+    //align-content: space-between;
+    align-items: end;
+    grid-template-rows: auto auto 1fr 1fr;
     box-shadow: 0 0 3px 2px #ddd;
     border-radius: 10px;
     transition: box-shadow $animation-duration;
 
     &:hover {
       box-shadow: 0 0 3px 2px $red-color;
+    }
+
+    @media screen and (max-width: 1080px) {
+      padding: {
+        left: 30px;
+        right: 30px;
+      }
+      min-height: auto;
+      grid-template-columns: 1fr 1.5fr 1fr;
+      grid-template-areas:
+        'image list price'
+        'image list button';
+
+      justify-items: center;
+
+      &:not(:first-of-type) {
+        margin-top: 30px;
+      }
     }
   }
 
@@ -38,6 +75,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media screen and (max-width: 1080px) {
+      grid-area: image;
+    }
   }
 
   &__img {
@@ -54,10 +95,16 @@
     @extend .list-reset-defult;
     margin: 30px 0 0;
     text-align: initial;
+
+    @media screen and (max-width: 1080px) {
+      margin: 0;
+      grid-area: list;
+    }
   }
 
   &__item {
-    @include font-config(14px, 400, 2.14, $gray-color);
+    display: flex;
+    align-items: center;
 
     &:not(:first-child) {
       margin-top: 10px;
@@ -65,15 +112,32 @@
 
     &::before {
       content: '\2714';
-      font-size: 14px;
+      font-size: 16px;
       margin-right: 25px;
       color: #2fab73;
+    }
+  }
+
+  &__item-text {
+    margin: 0;
+    @include font-config(16px, 400, 2.14, $gray-color);
+    white-space: nowrap;
+
+    @media screen and (max-width: 720px) {
+      font-size: 14px;
+      line-height: 1.8;
     }
   }
 
   &__price {
     margin: auto 0 0;
     @include font-config(25px, 500, 1.2, $dark-color);
+
+    @media screen and (max-width: 1080px) {
+      margin: 0;
+      grid-area: price;
+      align-self: end;
+    }
   }
 
   &__currency {
@@ -87,7 +151,9 @@
     margin: 20px 0 0;
     text-decoration: none;
     @include font-config(16px, 700, 1.19, $red-color);
-    padding: 13px 63px;
+    padding: 13px 0;
+    max-width: 182px;
+    width: 100%;
     background-color: transparent;
     border: 2px solid $red-color;
     border-radius: 50px;
@@ -114,6 +180,11 @@
 
     &:hover::before {
       width: 100%;
+    }
+
+    @media screen and (max-width: 1080px) {
+      grid-area: button;
+      align-self: start;
     }
   }
 }
