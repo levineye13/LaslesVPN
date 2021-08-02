@@ -1,17 +1,29 @@
+@import './variables.scss';
+@import './mixins.scss';
+
 .network {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .network__title {
   margin: 0;
-  @include font-config(35px, 500, 1.43, $dark-color);
+  @include font-config(35px, 500, 1.4, $dark-color);
+
+  @media screen and (max-width: 720px) {
+    font-size: 25px;
+  }
 }
 
 .network__subtitle {
   margin: 20px 0 0;
-  @include font-config(16px, 400, 1.87, $gray-color);
+  @include font-config(18px, 400, 1.8, $gray-color);
+
+  @media screen and (max-width: 720px) {
+    font-size: 16px;
+  }
 }
 
 .network__medium {
@@ -23,4 +35,6 @@
   max-width: 1060px;
   height: auto;
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }

@@ -1,3 +1,7 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import './general.scss';
+
 .pricing {
   text-align: center;
 
@@ -63,10 +67,8 @@
     }
 
     @media screen and (max-width: 720px) {
-      //min-height: 760px;
       flex-direction: column;
       align-items: center;
-      //justify-content: initial;
     }
   }
 
