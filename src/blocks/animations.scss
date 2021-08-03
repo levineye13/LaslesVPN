@@ -6,3 +6,16 @@
     left: calc(100% + 30px);
   }
 }
+
+@keyframes button-scale {
+  0%,
+  50%,
+  100% {
+    transform: scale(1);
+  }
+
+  25%,
+  75% {
+    transform: scale(1.3);
+  }
+}
