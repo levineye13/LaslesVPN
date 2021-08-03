@@ -1,9 +1,10 @@
 import { htmlNodeNames } from '../utils/constants';
 
 class FormValidator {
-  constructor(elementWithForm) {
+  constructor(elementWithForm, closeMethod) {
     this._htmlElementWithForm = elementWithForm;
     this._form = this._htmlElementWithForm.querySelector('form');
+    this._close = closeMethod;
   }
 
   _showInputError = (inputElement) => {
@@ -70,6 +71,15 @@ class FormValidator {
     return true;
   };
 
+  _submitForm = (submitElement, inputElements) => {
+    this._setSubmitState(false, submitElement);
+    this._resetForm(inputElements);
+
+    if (this._close) {
+      this._close();
+    }
+  };
+
   validate = () => {
     const formElements = Array.from(this._form.elements);
 
@@ -95,15 +105,14 @@ class FormValidator {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
 
-      let matched;
+      if (passwordInputs.length === 1) {
+        this._submitForm(submitElement, inputElements);
+      } else if (passwordInputs.length === 2) {
+        let matched = this._checkPasswordMatch(...passwordInputs);
 
-      if (passwordInputs.length === 2) {
-        matched = this._checkPasswordMatch(...passwordInputs);
-      }
-
-      if (matched) {
-        this._setSubmitState(false, submitElement);
-        this._resetForm(inputElements);
+        if (matched) {
+          this._submitForm(submitElement, inputElements);
+        }
       }
     });
   };
