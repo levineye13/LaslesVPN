@@ -1,3 +1,6 @@
+@import './variables.scss';
+@import './mixins.scss';
+
 .logo {
   margin: 0;
   transition: opacity $animation-duration;

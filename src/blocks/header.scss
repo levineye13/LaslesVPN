@@ -14,7 +14,7 @@
   }
 
   &__list {
-    @extend .list-reset-defult;
+    @extend .list-reset;
     display: flex;
   }
 
@@ -120,7 +120,7 @@
     cursor: pointer;
 
     &:hover {
-      animation: button-border 0.5s linear 0s 1;
+      //animation: button-border 0.5s linear 0s 1;
     }
 
     @media screen and (max-width: 960px) {

@@ -3,7 +3,7 @@
 
 .resources {
   &__list {
-    @extend .list-reset-defult;
+    @extend .list-reset;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min-content, 180px));

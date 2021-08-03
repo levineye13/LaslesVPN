@@ -38,7 +38,7 @@
   }
 
   &__social-list {
-    @extend .list-reset-defult;
+    @extend .list-reset;
     display: flex;
   }
 
@@ -74,7 +74,7 @@
   }
 
   &__menu {
-    @extend .list-reset-defult;
+    @extend .list-reset;
     margin-left: 230px;
     flex-grow: 1;
     display: grid;
@@ -116,7 +116,7 @@
   }
 
   &__submenu {
-    @extend .list-reset-defult;
+    @extend .list-reset;
     margin: 20px 0 0;
   }
 
