@@ -10,6 +10,7 @@
   right: 0;
   background-color: $overlay;
   transition: width $animation-duration;
+  overflow: hidden;
 
   &_opened {
     width: 100vw;
