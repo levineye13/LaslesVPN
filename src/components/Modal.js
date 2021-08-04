@@ -1,4 +1,4 @@
-import { keyCodeESC } from '../utils/constants';
+import { ESC_KEY_CODE } from '../utils/constants';
 
 class Modal {
   constructor(modalSelector) {
@@ -39,7 +39,7 @@ class Modal {
   };
 
   _handleEscClose = (evt) => {
-    if (evt.keyCode === keyCodeESC) {
+    if (evt.keyCode === ESC_KEY_CODE) {
       this.close();
     }
   };

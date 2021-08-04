@@ -1,4 +1,4 @@
-import { htmlNodeNames } from '../utils/constants';
+import { HTML_NODES } from '../utils/constants';
 
 class FormValidator {
   constructor(elementWithForm, closeMethod) {
@@ -84,7 +84,7 @@ class FormValidator {
     const formElements = Array.from(this._form.elements);
 
     const inputElements = formElements.filter(
-      (element) => element.nodeName === htmlNodeNames.input
+      (element) => element.nodeName === HTML_NODES.input
     );
 
     const passwordInputs = inputElements.reduce(
@@ -94,7 +94,7 @@ class FormValidator {
 
     const submitElement = formElements.find((element) => {
       return (
-        element.nodeName === htmlNodeNames.button && element.type === 'submit'
+        element.nodeName === HTML_NODES.button && element.type === 'submit'
       );
     });
 
