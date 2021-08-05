@@ -81,6 +81,10 @@ class FormValidator {
   };
 
   validate = () => {
+    if (!this._form) {
+      return;
+    }
+
     const formElements = Array.from(this._form.elements);
 
     const inputElements = formElements.filter(
