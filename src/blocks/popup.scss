@@ -39,12 +39,24 @@
     top: 0;
     right: 0;
     transform: translate(40px, -40px);
+
+    @media screen and (max-width: 720px) {
+      transform: translate(-10px, 10px);
+      &::before,
+      &::after {
+        background-color: $dark-color;
+      }
+    }
   }
 
   &__title {
     @include font-config(25px, 500, 1.2, $dark-color);
     margin: 0;
     text-align: center;
+
+    @media screen and (max-width: 720px) {
+      font-size: 22px;
+    }
   }
 
   &__fieldset {
@@ -93,6 +105,7 @@
   }
 
   &__submit {
+    @include font-config(16px, 400, 1.2, $dark-color);
     padding: 10px 0;
     border: 0;
     cursor: pointer;
@@ -105,6 +118,14 @@
       pointer-events: none;
       user-select: none;
       background-color: $disabled;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 14px;
     }
   }
 }
