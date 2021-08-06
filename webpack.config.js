@@ -12,6 +12,8 @@ module.exports = {
   },
   output: {
     path: resolve(__dirname, buildDirectory),
+    filename: 'main.js',
+    publicPath: '',
   },
   devServer: {
     contentBase: resolve(__dirname, buildDirectory),
